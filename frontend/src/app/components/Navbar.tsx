@@ -1,6 +1,8 @@
 'use client'
 import { useState } from 'react';
 
+
+
 export default function Navbar() {
     // State for the dropdown visibility
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -33,8 +35,10 @@ export default function Navbar() {
                             onClick={toggleUserMenu}
                         >
                             <span className="sr-only">Open user menu</span>
-                            <img className="w-16 h-16 rounded-2xl" src="/placeholder.person.png" alt="user photo"/>
+                            <img className="w-24 h-24 rounded-2xl" src="/placeholder.person.png" alt="user photo"/>
                         </button>
+                        {/*add google map box here to the right of user's profile*/}
+                        <img className="w-36 h-36" src="../../../public/map-placeholder.png" alt="Google Maps - User Location"/>
                         {isUserMenuOpen && (
                             <div
                                 className="absolute top-full left-full mt-2 w-48 z-50 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
