@@ -9,8 +9,9 @@ export default function HomepageNotSignedIn() {
               <title>ABQ CAR</title>
               <link rel="logo" href="/favicon.ico" />
           </head>
-          <div className="text-xl text-center">
-              Short on time and need transportation assistance? Don't worry, we've got you covered!
+          <div className="grid grid-cols-2">
+
+
           </div>
       </>
   );

@@ -1,12 +1,13 @@
 'use client'
 import { useState } from 'react';
+import "../globals.css";
 
 
 
 export default function Navbar() {
     // State for the dropdown visibility
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
-    const [isCompanyMenuOpen, setIsCompanyMenuOpen] = useState(false);
+    const [isCompanyMenuOpen, setIsServiceMenuOpen] = useState(false);
 
     // Toggle User Menu
     const toggleUserMenu = () => {
@@ -15,61 +16,69 @@ export default function Navbar() {
 
     // Toggle Company Menu
     const toggleCompanyMenu = () => {
-        setIsCompanyMenuOpen(prev => !prev);
+        setIsServiceMenuOpen(prev => !prev);
     };
 
     return (
         <>
-            <nav className="bg-white border-gray-200 dark:bg-gray-900 relative">
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                    <a href="/" className="flex items-center -ml-56 rtl:space-x-reverse gap-6">
+            <nav className="border-b-4 border-b-black bg-amber-400 relative">
+                <div className="flex flex-wrap items-center justify-between mx-auto p-4">
+                    <a href="/" className="flex items-center  rtl:space-x-reverse gap-6">
                         <img src="/placeholder.logo.svg" className="h-32 rounded-full" alt="ABQ-CAR Logo"/>
-                        <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+                        <span className="self-center text-4xl font-semibold">
                             Albuquerque - Catch a Ride
                         </span>
                     </a>
-                    <div className="relative flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                        <button
-                            type="button"
-                            className="flex text-xs bg-gray-800 rounded-full md:me-0 dark:focus:ring-gray-600"
-                            onClick={toggleUserMenu}
-                        >
-                            <span className="sr-only">Open user menu</span>
-                            <img className="w-24 h-24 rounded-2xl" src="/placeholder.person.png" alt="user photo"/>
-                        </button>
-                        {/*add google map box here to the right of user's profile*/}
-                        <img className="w-36 h-36" src="../../../public/map-placeholder.png" alt="Google Maps - User Location"/>
+                    <div className="relative items-center flex md:order-2 ">
+                        <div className="flex flex-row items-center gap-4">
+                            <div className="grid grid-cols-1">
+                                <h3 className="text-center text-black">HERO</h3>
+                                <button
+                                    type="button"
+                                    className="flex text-xs rounded-full dark:focus:ring-gray-600"
+                                    onClick={toggleUserMenu}
+                                >
+                                    <span className="sr-only">Open user menu</span>
+                                    <img className="w-24 h-24 rounded-2xl" src="/placeholder.person.png"
+                                         alt="user photo"/>
+                                </button>
+                            </div>
+                            {/*add google map box here to the right of user's profile*/}
+                            <img className="w-36 h-36 rounded-2xl" src="https://i.imgur.com/4mtLBO3.png"
+                                 alt="Google Maps - User Location"/>
+                        </div>
+
                         {isUserMenuOpen && (
                             <div
-                                className="absolute top-full left-full mt-2 w-48 z-50 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600"
+                                className="absolute top-full mt-2 w-48 text-white font-bold text-base list-none bg-amber-400 border border-black divide-y divide-gray-100 rounded-lg shadow"
                             >
                                 <div className="px-4 py-3">
-                                    <span className="block text-sm text-gray-900 dark:text-white">User's Name</span>
+                                    <span className="block font-bold text-2xl text-white">User's Name</span>
                                     <span
-                                        className="block text-sm text-gray-500 truncate dark:text-gray-400">users@email.com</span>
+                                        className="block font-bold text-lg truncate text-white">users@email.com</span>
                                 </div>
                                 <ul className="py-2">
                                     <li>
                                         <a href="#"
-                                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                           className="block px-4 py-2 text-sm text-white hover:text-amber-400 hover:bg-white rounded-lg">
                                             Dashboard
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#"
-                                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                           className="block px-4 py-2 text-sm hover:text-amber-400 hover:bg-white rounded-lg">
                                             Settings
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#"
-                                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                           className="block px-4 py-2 text-sm text-white hover:text-amber-400 hover:bg-white rounded-lg">
                                             Earnings
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#"
-                                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">
+                                           className="block px-4 py-2 text-sm text-white hover:text-amber-400 hover:bg-white rounded-lg">
                                             Sign out
                                         </a>
                                     </li>
@@ -78,7 +87,7 @@ export default function Navbar() {
                         )}
                         <button
                             type="button"
-                            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                            className="inline-flex items-center p-2 w-10 h-10 justify-center rounded-lg md:hidden"
                             onClick={toggleCompanyMenu}
                         >
                             <span className="sr-only">Open main menu</span>
@@ -91,25 +100,25 @@ export default function Navbar() {
 
                     </div>
 
-                    <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1">
-                        <ul className="flex flex-col text-xl font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <div className="items-center justify-between w-full flex md:w-auto md:order-1">
+                        <ul className="flex flex-col text-2xl font-medium p-4 md:p-0 mt-4 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
                             <li>
                                 <a href="#"
-                                   className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                                   className="block text-black hover:text-white hover:translate-y-1"
                                    aria-current="page">
                                     Home
                                 </a>
                             </li>
                             <li>
                                 <a href="#"
-                                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                                   className="block py-2 px-3 text-white rounded hover:text-black hover:translate-y-1 md:p-0">
                                     About
                                 </a>
                             </li>
                             <li>
                                 <button
                                     type="button"
-                                    className="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded md:w-auto hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-600 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700"
+                                    className="flex items-center justify-between w-full text-white hover:text-black hover:translate-y-1"
                                     onClick={toggleCompanyMenu}
                                 >
                                     Services
@@ -122,25 +131,19 @@ export default function Navbar() {
                             </li>
                             <li>
                                 <a href="#"
-                                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
-                                    Marketplace
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                                   className="block text-white rounded hover:text-black hover:translate-y-1">
                                     Resources
                                 </a>
                             </li>
                             <li>
                                 <a href="#"
-                                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-blue-500 md:dark:hover:bg-transparent dark:border-gray-700">
+                                   className="block text-white rounded hover:text-black hover:translate-y-1">
                                     Contact
                                 </a>
                             </li>
                             <li>
                                 <a href="#"
-                                   className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                                   className="block text-white rounded hover:text-black hover:translate-y-1">
                                     Pricing
                                 </a>
                             </li>
@@ -149,38 +152,38 @@ export default function Navbar() {
 
                     {isCompanyMenuOpen && (
                         <div id="mega-menu-full-dropdown"
-                             className="absolute left-1/2 top-28 mt-2 w-80 transform -translate-x-1/2 z-50 border-gray-200 shadow-lg bg-gray-50 md:bg-white border-y dark:bg-gray-800 dark:border-gray-600">
+                             className="absolute left-1/2 top-28 m-2 w-80 p-2 transform -translate-x-1/2 z-50 bg-amber-400 border border-black rounded-xl shadow-lg">
                             <div
-                                className="grid grid-cols-1 md:grid-cols-1 gap-4 px-4 mx-auto text-gray-900 dark:text-white md:px-6">
+                                className="grid grid-cols-1 md:grid-cols-1 gap-4 px-4 mx-auto text-white md:px-6">
                                 <ul className="space-y-4">
                                     <li>
                                         <a href="#"
-                                           className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                                            <div className="font-semibold">Online Stores</div>
-                                            <span className="text-sm text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
+                                           className="block p-3 rounded-lg hover:bg-white hover:text-amber-400">
+                                            <div className="font-semibold text-lg">Taxi Rides</div>
+                                            <span className="text-sm text-black">Connect with a driver to pick you up.</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#"
-                                           className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                                            <div className="font-semibold">Segmentation</div>
-                                            <span className="text-sm text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
+                                           className="block p-3 rounded-lg hover:bg-white hover:text-amber-400">
+                                            <div className="font-semibold text-lg">Vehicle Towing</div>
+                                            <span className="text-sm text-black">On a tight budget but really need your vehicle towed? You can negotiate a price right away with one of these providers.</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#"
-                                           className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                                            <div className="font-semibold">Marketing CRM</div>
-                                            <span className="text-sm text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
+                                           className="block p-3 rounded-lg hover:bg-white hover:text-amber-400">
+                                            <div className="font-semibold text-lg">Locked out?</div>
+                                            <span className="text-sm text-black">Accidently locked your keys in your car and don't have a spare? Someone can help you right away!</span>
                                         </a>
                                     </li>
                                 </ul>
                                 <ul className="space-y-4">
                                     <li>
                                         <a href="#"
-                                           className="block p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
-                                            <div className="font-semibold">Online Stores</div>
-                                            <span className="text-sm text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
+                                           className="block p-3 rounded-lg hover:bg-white hover:text-amber-400">
+                                            <div className="font-semibold text-lg">Detailing</div>
+                                            <span className="text-sm text-black">Tired of paying too much to have your car detailed? Connect with someone for a better rate.</span>
                                         </a>
                                     </li>
                                 </ul>
