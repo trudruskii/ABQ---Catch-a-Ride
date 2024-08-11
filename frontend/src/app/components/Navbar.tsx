@@ -152,15 +152,16 @@ export default function Navbar() {
 
                     {isCompanyMenuOpen && (
                         <div id="mega-menu-full-dropdown"
-                             className="absolute left-1/2 top-28 m-2 w-80 p-2 transform -translate-x-1/2 z-50 bg-amber-400 border border-black rounded-xl shadow-lg">
+                             className="absolute left-1/2 top-28 m-2 w-1/4 p-2 transform -translate-x-1/2 z-50 bg-amber-400 border border-black rounded-xl shadow-lg">
                             <div
-                                className="grid grid-cols-1 md:grid-cols-1 gap-4 px-4 mx-auto text-white md:px-6">
+                                className="gap-4 px-4 mx-auto text-white md:px-6">
                                 <ul className="space-y-4">
                                     <li>
                                         <a href="#"
                                            className="block p-3 rounded-lg hover:bg-white hover:text-amber-400">
                                             <div className="font-semibold text-lg">Taxi Rides</div>
-                                            <span className="text-sm text-black">Connect with a driver to pick you up.</span>
+                                            <span
+                                                className="text-sm text-black">Connect with a driver to pick you up.</span>
                                         </a>
                                     </li>
                                     <li>
@@ -177,13 +178,18 @@ export default function Navbar() {
                                             <span className="text-sm text-black">Accidently locked your keys in your car and don't have a spare? Someone can help you right away!</span>
                                         </a>
                                     </li>
-                                </ul>
-                                <ul className="space-y-4">
                                     <li>
                                         <a href="#"
                                            className="block p-3 rounded-lg hover:bg-white hover:text-amber-400">
                                             <div className="font-semibold text-lg">Detailing</div>
                                             <span className="text-sm text-black">Tired of paying too much to have your car detailed? Connect with someone for a better rate.</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                           className="block p-3 rounded-lg hover:bg-white hover:text-amber-400">
+                                            <div className="font-semibold text-lg">Emergency Mechanic</div>
+                                            <span className="text-sm text-black">Ran out of gas? Need some radiator fluid? Something else wrong with your car and you'd like a mechanic to come to you for once? Here they are, right at your fingertips. </span>
                                         </a>
                                     </li>
                                 </ul>
